@@ -65,3 +65,7 @@ The model of o1-preview & o1-mini is poorer performance and more expensive, so w
 
     nohup python App.py > "output_$(date '+%Y-%m-%d_%H-%M-%S').log" 2>&1 &
     tail -f output_XXX.log
+
+## 执行结果
+
+![执行结果](images/run_result.png)
