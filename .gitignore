@@ -13,6 +13,7 @@ __pycache__/
 .Python
 build/
 output/
+docs/
 notes/
 develop-eggs/
 dist/

@@ -120,7 +120,7 @@ async def read_bad_case_excel_file():
     o1PreivewOutputs = [None] * len(df)
     o1miniOutputs = [None] * len(df)
 
-    semaphore = asyncio.Semaphore(os.getenv("AZURE_OPENAI_ENDPOINT",140))  # Limit to 140 concurrent tasks
+    semaphore = asyncio.Semaphore(int(os.getenv("CONCURRENT_TASK_SEMAPHORE_COUNT",140)))  # Limit to 140 concurrent tasks
     tasks = []
     for index, row in df.iterrows():
         tasks.append(process_row(index, row, semaphore))
