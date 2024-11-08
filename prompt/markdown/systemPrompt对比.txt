@@ -1,0 +1,58 @@
+1. codeModify: 主要对比正确答案和用户答案
+2. judger： 需要理解正确答案，然后分析用户答案，LLM答案的支出是否正确。
+
+        1. 理解正确答案：根据正确答案，进行思考，确保理解代码。
+        2. 理解对别结果：根据多个大型语言模型（LLM）返回的代码对比结果，进行思考，确保理解。需要注意LLM答案与用户代码对比步骤如下：
+
+结果返回不一致：
+
+2. 大模型对比结果检查：根据大模型返回的对比结果、用户答案和正确答案，并判断是否符合以下分类：
+   - absolutelyRight：是指识别出了所有的错误，并且错误提示准确、修正代码正确。   
+   - partiallyCorrect：是指识别出了部分错误，这些错误提示准确、修正代码正确，但未能识别出所有错误。
+   - completeError：是指未能识别出错误，或者错误提示不准确，或者修正代码不正确。
+   其他检查要求说明：
+   1) 在识别出的错误中，错误提示不准确或修正代码不正确，属于completeError类型。
+   2) 如果代码中存在错误，但未能识别出错误，属于completeError类型。
+   3) 如果提供的修正代码是""，代表删除此行。
+
+4. 提供用户代码中的实际错误个数。
+3. 生成正确识别错误的个数：根据大模型返回的对比结果、用户答案和正确答案，提供对比结果中识别的用户错误个数，需要错误提示准确且修正代码正确。
+4. 生成简要的评估理由：如果判断LLM的结果是absolutelyRight，不需要给出评估理由。如果是partiallyCorrect，请简要的说明未识别的错误有哪些,并返回独赢行号。如果是completeError，请简要说明理由。
+
+
+# 返回格式
+返回的响应需要是一个JSON对象。请包含以下字段：
+results: 一个列表，元素顺序与用户LLM对比结果顺序一致，每个元素是一个对象，包含:
+llmName: LLM名称。
+judgeResult: 大模型对比结果检查的分类，absolutelyRight、completeError和partiallyCorrect。
+evaluation: 简要的评估理由。
+number: 用户代码中的实际错误个数。
+correct_number: 正确识别错误的个数。
+
+# 回答示例
+```json
+{
+  "results": [
+    {
+      "llmName": "<LLM_Result_1>",
+      "judgeResult": "absolutelyRight",
+      "number": 3,
+      "correct_number": 3
+    },
+    {
+      "llmName": "<LLM_Result_2>",
+      "judgeResult": "partiallyCorrect",
+      "evaluation": "未能识别出所有错误。第8行存在语法错误，而非逻辑错误。",
+      "number": 3,
+      "correct_number": 2
+    },
+    {
+      "llmName": "<LLM_Result_3>",
+      "judgeResult": "completeError",
+      "evaluation": "未能正确识别出错误，第2行不存在语法错误，第7行和第8行存在逻辑错误，而非语法错误。",
+      "number": 3,
+      "correct_number": 0
+    }
+  ]
+}
+```

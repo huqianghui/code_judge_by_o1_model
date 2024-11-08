@@ -1,0 +1,18 @@
+{
+    "text": "```json\n{\n  \"errors\": [\n    {\n      \"errorType\": \"逻辑错误\",\n      \"rowNumber\": 5,\n      \"msg\": \"多余的注释行。\",\n      \"correctCode\": \"\"\n    },\n    {\n      \"errorType\": \"逻辑错误\",\n      \"rowNumber\": 9,\n      \"msg\": \"多余的注释行。\",\n      \"correctCode\": \"\"\n    },\n    {\n      \"errorType\": \"逻辑错误\",\n      \"rowNumber\": 8,\n      \"msg\": \"不必要的空格。\",\n      \"correctCode\": \"glue += 2\"\n    }\n  ]\n}\n```\n",
+    "usage": {
+      "prompt_tokens": 1077,
+      "prompt_unit_price": "5.0",
+      "prompt_price_unit": "0.000001",
+      "prompt_price": "0.0053850",
+      "completion_tokens": 146,
+      "completion_unit_price": "15.0",
+      "completion_price_unit": "0.000001",
+      "completion_price": "0.0021900",
+      "total_tokens": 1223,
+      "total_price": "0.0075750",
+      "currency": "USD",
+      "latency": 2.9179857429116964
+    },
+    "finish_reason": "stop"
+  }

@@ -1,0 +1,6 @@
+print('forward')
+print(0)
+print('foyward')
+print(1)
+print('forward')
+print(2)

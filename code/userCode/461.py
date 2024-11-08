@@ -1,0 +1,6 @@
+print('7乘以2等于多少?')
+print('9除以3等于多少?')
+a = input()
+b = input()
+print(a)
+print(b)

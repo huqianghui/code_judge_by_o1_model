@@ -1,0 +1,6 @@
+print(4)
+a=input()
+print(5)
+print(a)
+print(5)
+print(a)

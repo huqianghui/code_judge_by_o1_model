@@ -1,0 +1,6 @@
+print('d')
+print('d')
+print('s')
+print('s')
+print('s')
+print('s')

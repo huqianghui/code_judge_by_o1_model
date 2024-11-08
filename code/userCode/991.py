@@ -1,0 +1,10 @@
+def sb(n):
+    print(n)
+    print('red')
+    print('yellow')
+    print('pink')
+    print('green')
+sb(3)    
+sb(4)
+sb(7)
+sb(9)

@@ -1,0 +1,6 @@
+print(4)
+n = input()
+print(5)
+print(n)
+print(6)
+print(n)
