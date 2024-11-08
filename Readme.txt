@@ -52,7 +52,7 @@ The model of o1-preview & o1-mini is poorer performance and more expensive, so w
         异步cache （aiocache）
         https://github.com/aio-libs/aiocache （支持redis之类的）
 
-        以及整合方案：
+        以及整合方案：选择redis还是disk都可以兼容
 
         https://github.com/Krukov/cashews
     
